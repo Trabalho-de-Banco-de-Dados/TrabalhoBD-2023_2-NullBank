@@ -2,7 +2,10 @@ from fastapi import FastAPI
 import uvicorn
 import bd
 
-app = FastAPI()
+app = FastAPI(
+    title="Nullbank",
+    version="1.0.0"
+)
 
 @app.get('/')
 async def index():
