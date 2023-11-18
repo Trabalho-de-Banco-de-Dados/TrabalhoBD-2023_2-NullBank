@@ -60,10 +60,10 @@ E rodar o código
 
 ```python src/app.py```
 ## Requisitos Back-End
-- [] CRUD de Agências
+- [ ] CRUD de Agências
 - [ ] CRUD de Funcionários
-- [ ] CRUD de Dependentes
-- [ ] CRUD de Contas
+- [ ] CRUD deDependentes
+- [ ] CRUD de  Contas
 - [ ] Adicionar Transações
 - [ ] Adicionar clientes
 - [ ] Adicionar login para DBA
