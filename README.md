@@ -42,3 +42,21 @@ FERNANDO RODRIGUES DE ALMEIDA JÚNIOR
 ## Disciplina / Instituição
 
 Banco de Dados 2023.2 / UNIVERSIDADE FEDERAL DO CEARÁ
+
+## Como rodar backEnd
+Com o python intalado o primeiro passo é criar um ambiente virtual
+
+```python -m venv venv```
+
+Ativar o ambiente
+
+```.\venv\Scripts\activate```
+
+Instalar as dependências
+
+```pip install -r requirements.txt```
+
+E rodar o código
+
+```python src/app.py```
+##
