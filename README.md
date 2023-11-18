@@ -59,14 +59,14 @@ Instalar as dependências
 E rodar o código
 
 ```python src/app.py```
-## Requisitos
+## Requisitos Back-End
 - [] CRUD de Agências
-- [] CRUD de Funcionários
-- [] CRUD de Dependentes
-- [] CRUD de Contas
-- [] Adicionar Transações
-- [] Adicionar clientes
-- [] Adicionar login para DBA
-- [] Adicionar login para funcionários
-- [] Adicionar login para clientes
+- [ ] CRUD de Funcionários
+- [ ] CRUD de Dependentes
+- [ ] CRUD de Contas
+- [ ] Adicionar Transações
+- [ ] Adicionar clientes
+- [ ] Adicionar login para DBA
+- [ ] Adicionar login para funcionários
+- [ ] Adicionar login para clientes
 ##
