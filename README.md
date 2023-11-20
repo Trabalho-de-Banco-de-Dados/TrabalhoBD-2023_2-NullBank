@@ -64,6 +64,7 @@ E rodar o código
 - [X] CRUD de Funcionários
 - [ ] CRUD de Dependentes
 - [ ] CRUD de  Contas
+- [ ] CRUD de  Clientes
 - [ ] Adicionar Transações
 - [ ] Adicionar login para DBA
 - [ ] Adicionar login para funcionários
