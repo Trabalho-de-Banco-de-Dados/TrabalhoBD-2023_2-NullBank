@@ -61,8 +61,8 @@ E rodar o código
 ```python src/app.py```
 ## Requisitos Back-End
 - [X] CRUD de Agências
-- [ ] CRUD de Funcionários
-- [ ] CRUD deDependentes
+- [X] CRUD de Funcionários
+- [ ] CRUD de Dependentes
 - [ ] CRUD de  Contas
 - [ ] Adicionar Transações
 - [ ] Adicionar clientes
