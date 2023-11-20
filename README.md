@@ -62,7 +62,7 @@ E rodar o código
 ## Requisitos Back-End
 - [X] CRUD de Agências
 - [X] CRUD de Funcionários
-- [ ] CRUD deDependentes
+- [ ] CRUD de Dependentes
 - [ ] CRUD de  Contas
 - [ ] Adicionar Transações
 - [ ] Adicionar login para DBA
