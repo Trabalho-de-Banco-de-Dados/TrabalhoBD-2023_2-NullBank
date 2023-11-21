@@ -7,16 +7,6 @@ from enum import Enum
 
 funcionarioRouter = APIRouter()
 
-class Cargo(Enum):
-    GERENTE = 'GERENTE'
-    ATENDENTE = 'ATENDENTE'
-    CAIXA = 'CAIXA'
-
-class Sexo(Enum):
-    FEMININO = 'MASCULINO'
-    MASCULINO = 'FEMININO'
-
-
 @funcionarioRouter.get("/")
 async def list_funcionario():
     banco = bd.Bd()
@@ -72,7 +62,7 @@ async def createFuncionario(funcionario: FuncionarioModelPost):
 
 
 @funcionarioRouter.put("/")
-async def modificarAgencia(funcionario: FuncionarioModelPut):
+async def modificarFuncionario(funcionario: FuncionarioModelPut):
     banco = bd.Bd()
     slq = f"""UPDATE `nullbank`.`Funcionario`
             SET
@@ -91,7 +81,7 @@ async def modificarAgencia(funcionario: FuncionarioModelPut):
 
 
 @funcionarioRouter.delete("/")
-async def deletarAgencia(funcionario: FuncionarioModelDelete):
+async def deletarFuncionario(funcionario: FuncionarioModelDelete):
     banco = bd.Bd()
     slq = f"""DELETE FROM `nullbank`.`Funcionario`
             WHERE

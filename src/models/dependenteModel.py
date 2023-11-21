@@ -6,26 +6,16 @@ class Parentesco(Enum):
     GENITOR = 'GENITOR'
     CONJUGE = 'CONJUGE'
 
-class FuncionarioModelPost(BaseModel):
+class DependenteModelPost(BaseModel):
     nome: str
-    senha: str
-    endereco: str
-    cidade: str
     parentesco: Parentesco
     data_nascimento: str
-    salario: float
-    Agencia: int
-    num_dependentes: int
+    id_funcionario: int
 
-class FuncionarioModelPut(BaseModel):
+class DependenteModelPut(BaseModel):
     id: int
     nome: str
-    endereco: str
-    cidade: str
-    parentesco: Parentesco
-    salario: float
-    num_dependentes: int
 
 
-class FuncionarioModelDelete(BaseModel):
+class DependenteModelDelete(BaseModel):
     id: int
