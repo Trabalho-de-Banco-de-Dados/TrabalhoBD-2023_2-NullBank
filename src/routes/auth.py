@@ -31,7 +31,7 @@ def authenticate_user(id, tipo_usuario, senha):
     if tipo_usuario == 'GERENTE':
         slq = """SELECT * FROM `nullbank`.`Funcionario`
         WHERE
-            `idFuncionario` = %(id_funcionario)s;"""
+            `idFuncionario` = %(id_funcionario)s AND `cargo` = 'gerente';"""
         banco.cursor.execute(slq, {"id_funcionario": id})
         result = banco.cursor.fetchall()
         if len(list(result))==0:
