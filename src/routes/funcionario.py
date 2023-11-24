@@ -1,15 +1,20 @@
+from typing import Annotated
 import uuid
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 import bd
 from models.funcionarioModel import FuncionarioModelPost, FuncionarioModelPut, FuncionarioModelDelete
 from datetime import datetime
 from enum import Enum
 from passlib.context import CryptContext
+from routes.auth import pegar_dados_usuarios
+
 
 funcionarioRouter = APIRouter()
+login_dependency = Annotated[dict, Depends(pegar_dados_usuarios)]
 
 @funcionarioRouter.get("/")
-async def list_funcionario():
+async def list_funcionario(usuario: login_dependency):
+    print(usuario) # VEM DO JWT
     banco = bd.Bd()
     slq = f'SELECT * FROM Funcionario'
     banco.cursor.execute(slq)
