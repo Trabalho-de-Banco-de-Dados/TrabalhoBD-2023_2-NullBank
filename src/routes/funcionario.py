@@ -4,6 +4,7 @@ import bd
 from models.funcionarioModel import FuncionarioModelPost, FuncionarioModelPut, FuncionarioModelDelete
 from datetime import datetime
 from enum import Enum
+from passlib.context import CryptContext
 
 funcionarioRouter = APIRouter()
 
@@ -27,6 +28,7 @@ async def ler_funcionario(id:str):
 async def createFuncionario(funcionario: FuncionarioModelPost):
     funcionario.data_nascimento = datetime.strptime(funcionario.data_nascimento, "%Y-%m-%d %H:%M:%S")
     banco = bd.Bd()
+    bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
     slq = f"""INSERT INTO `nullbank`.`Funcionario` (
   `idFuncionario`,
   `matricula`,
@@ -56,7 +58,9 @@ async def createFuncionario(funcionario: FuncionarioModelPost):
 );
 """
     banco.cursor.execute(
-        slq, {"matricula": funcionario.matricula, "nome": funcionario.nome, "senha": funcionario.senha, "endereco": funcionario.endereco, "cidade": funcionario.cidade, "cargo": funcionario.cargo.value, "sexo": funcionario.sexo.value, "data_nascimento": funcionario.data_nascimento, "salario": funcionario.salario, "agencia": funcionario.Agencia, "num_dependentes": funcionario.num_dependentes})
+        slq, {"matricula": funcionario.matricula, "nome": funcionario.nome, 
+              "senha": bcrypt_context.hash(funcionario.senha), 
+              "endereco": funcionario.endereco, "cidade": funcionario.cidade, "cargo": funcionario.cargo.value, "sexo": funcionario.sexo.value, "data_nascimento": funcionario.data_nascimento, "salario": funcionario.salario, "agencia": funcionario.Agencia, "num_dependentes": funcionario.num_dependentes})
     banco.conexao.commit()
     return banco.cursor.fetchall()
 
