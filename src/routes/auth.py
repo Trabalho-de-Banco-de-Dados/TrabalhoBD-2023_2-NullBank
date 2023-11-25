@@ -28,18 +28,21 @@ async def login_for_acess_token(dados: UserLogin):
 
 def authenticate_user(id, tipo_usuario, senha):
     banco = bd.Bd()
-    if tipo_usuario == 'GERENTE':
+    if tipo_usuario in ['GERENTE', 'ATENDENTE', 'CAIXA']:
         slq = """SELECT * FROM `nullbank`.`Funcionario`
         WHERE
-            `idFuncionario` = %(id_funcionario)s AND `cargo` = 'gerente';"""
-        banco.cursor.execute(slq, {"id_funcionario": id})
+            `matricula` = %(matricula)s AND `cargo` = %(cargo)s;"""
+        banco.cursor.execute(slq, {"matricula": id, "cargo": tipo_usuario})
         result = banco.cursor.fetchall()
         if len(list(result))==0:
             return False
         if not bcrypt_context.verify(senha, result[0][3]):
             return False
         return True        
-
+    elif tipo_usuario == 'DBA':
+        if id == "ADMIN" and senha == "ROOT":
+            return True
+        
 def create_access_token(usuario_id, tipo_usuario, time_delta):
     encode = {"usuario_id": usuario_id, "tipo_usuario":  tipo_usuario}
     experies = datetime.datetime.utcnow() + time_delta

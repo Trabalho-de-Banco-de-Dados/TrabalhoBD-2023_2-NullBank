@@ -5,6 +5,6 @@ class Token(BaseModel):
     token_type: str
     
 class UserLogin(BaseModel):
-    usuario_id: int
+    usuario_id: str
     tipo_usuario: str
     senha: str
