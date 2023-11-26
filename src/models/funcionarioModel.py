@@ -2,14 +2,17 @@ from pydantic import BaseModel
 from enum import Enum
 from datetime import datetime
 
+
 class Cargo(Enum):
     GERENTE = 'GERENTE'
     ATENDENTE = 'ATENDENTE'
     CAIXA = 'CAIXA'
 
+
 class Sexo(Enum):
     FEMININO = 'MASCULINO'
     MASCULINO = 'FEMININO'
+
 
 class FuncionarioModelPost(BaseModel):
     matricula: int
@@ -23,6 +26,7 @@ class FuncionarioModelPost(BaseModel):
     salario: float
     Agencia: int
     num_dependentes: int
+
 
 class FuncionarioModelPut(BaseModel):
     id: int

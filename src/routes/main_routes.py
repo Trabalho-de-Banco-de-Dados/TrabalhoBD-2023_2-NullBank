@@ -10,10 +10,13 @@ from routes.dba import dbaRouter
 mainRoutes = APIRouter()
 
 mainRoutes.include_router(agenciaRouter, prefix="/agencia", tags=["agencia"])
-mainRoutes.include_router(funcionarioRouter, prefix="/funcionario", tags=["funcionario"])
-mainRoutes.include_router(dependenteRouter, prefix="/dependente", tags=["dependente"])
+mainRoutes.include_router(
+    funcionarioRouter, prefix="/funcionario", tags=["funcionario"])
+mainRoutes.include_router(
+    dependenteRouter, prefix="/dependente", tags=["dependente"])
 mainRoutes.include_router(clienteRouter, prefix="/cliente", tags=["cliente"])
 mainRoutes.include_router(authRouter, prefix="/auth", tags=["auth"])
 mainRoutes.include_router(contaRouter, prefix="/conta", tags=["conta"])
-mainRoutes.include_router(transacaoRouter, prefix="/transacao", tags=["transacao"])
+mainRoutes.include_router(
+    transacaoRouter, prefix="/transacao", tags=["transacao"])
 mainRoutes.include_router(dbaRouter, prefix="/dba", tags=["DBA"])

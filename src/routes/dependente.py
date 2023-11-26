@@ -15,8 +15,9 @@ async def list_Dependente():
     banco.cursor.execute(slq)
     return banco.cursor.fetchall()
 
+
 @dependenteRouter.get("/{id}")
-async def ler_dependente(id:str):
+async def ler_dependente(id: str):
     banco = bd.Bd()
     slq = """SELECT * FROM `nullbank`.`Dependente`
     WHERE
@@ -24,9 +25,11 @@ async def ler_dependente(id:str):
     banco.cursor.execute(slq, {"id_dependente": id})
     return banco.cursor.fetchall()
 
+
 @dependenteRouter.post("/")
 async def createDependente(dependente: DependenteModelPost):
-    dependente.data_nascimento = datetime.strptime(dependente.data_nascimento, "%Y-%m-%d %H:%M:%S")
+    dependente.data_nascimento = datetime.strptime(
+        dependente.data_nascimento, "%Y-%m-%d %H:%M:%S")
     banco = bd.Bd()
     slq = f"""INSERT INTO `nullbank`.`Dependente` (
   `idDependente`,
@@ -55,7 +58,8 @@ async def modificarDependente(dependente: DependenteModelPut):
         SET `nome_completo` = %(nome)s
         WHERE `idDependente` = %(id_dependente)s ;
         """
-    banco.cursor.execute(slq, {"nome": dependente.nome, "id_dependente": dependente.id})
+    banco.cursor.execute(
+        slq, {"nome": dependente.nome, "id_dependente": dependente.id})
     banco.conexao.commit()
     return banco.cursor.fetchall()
 

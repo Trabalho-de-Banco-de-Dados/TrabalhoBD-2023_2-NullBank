@@ -1,10 +1,12 @@
 from pydantic import BaseModel
 from enum import Enum
 
+
 class tipo_conta(Enum):
     CONTA_ESPECIAL = 'CONTA_ESPECIAL'
     CONTA_POUPANCA = 'CONTA_POUPANCA'
     CONTA_CORRENTE = 'CONTA_CORRENTE'
+
 
 class ContaModelPost(BaseModel):
     saldo: float

@@ -22,9 +22,12 @@ async def login_for_acess_token(dados: UserLogin):
     user = authenticate_user(dados.usuario_id, dados.tipo_usuario, dados.senha)
     user = bool(user)
     if not user:
-        raise HTTPException(status_code=500, detail="Usuário ou senha incorretos")
-    token = create_access_token(dados.usuario_id, dados.tipo_usuario, timedelta(days=30))
+        raise HTTPException(
+            status_code=500, detail="Usuário ou senha incorretos")
+    token = create_access_token(
+        dados.usuario_id, dados.tipo_usuario, timedelta(days=30))
     return {"access_token": str(token), "token_type": "1"}
+
 
 def authenticate_user(id, tipo_usuario, senha):
     banco = bd.Bd()
@@ -34,20 +37,34 @@ def authenticate_user(id, tipo_usuario, senha):
             `matricula` = %(matricula)s AND `cargo` = %(cargo)s;"""
         banco.cursor.execute(slq, {"matricula": id, "cargo": tipo_usuario})
         result = banco.cursor.fetchall()
-        if len(list(result))==0:
+        if len(list(result)) == 0:
             return False
         if not bcrypt_context.verify(senha, result[0][3]):
             return False
-        return True        
+        return True
     elif tipo_usuario == 'DBA':
         if id == "ADMIN" and senha == "ROOT":
             return True
-        
+    elif tipo_usuario == 'CLIENTE':
+        slq = """SELECT * FROM `nullbank`.`ContaBancaria`
+        WHERE
+            `numero_conta` = %(id)s;"""
+        banco.cursor.execute(slq, {"id": id})
+        result = banco.cursor.fetchall()
+        if len(list(result)) == 0:
+            return False
+        if not bcrypt_context.verify(senha, result[0][2]):
+            return False
+        return True
+    return False
+
+
 def create_access_token(usuario_id, tipo_usuario, time_delta):
     encode = {"usuario_id": usuario_id, "tipo_usuario":  tipo_usuario}
     experies = datetime.datetime.utcnow() + time_delta
     encode.update({"exp": experies})
     return jwt.encode(encode, SECRET_KEY, algorithm=ALGORITHM)
+
 
 async def pegar_dados_usuarios(token: Annotated[str, Depends(oauth2_bearer)]):
     try:
@@ -55,8 +72,10 @@ async def pegar_dados_usuarios(token: Annotated[str, Depends(oauth2_bearer)]):
         usuario_id = payload.get("usuario_id")
         tipo_usuario = payload.get("tipo_usuario")
         if usuario_id is None or tipo_usuario is None:
-           raise HTTPException(status_code=401, detail='Não foi possível valisar o usuário')
-        return {"usuario_id": usuario_id, "tipo_usuario": tipo_usuario} 
+            raise HTTPException(
+                status_code=401, detail='Não foi possível valisar o usuário')
+        return {"usuario_id": usuario_id, "tipo_usuario": tipo_usuario}
     except JWTError as e:
         print(e)
-        raise HTTPException(status_code=401, detail='Não foi possível valisar o usuário')
+        raise HTTPException(
+            status_code=401, detail='Não foi possível valisar o usuário')

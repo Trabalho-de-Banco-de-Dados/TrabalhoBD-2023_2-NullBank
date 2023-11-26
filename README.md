@@ -63,10 +63,16 @@ E rodar o código
 - [X] CRUD de Agências
 - [X] CRUD de Funcionários
 - [X] CRUD de Dependentes
-- [ ] CRUD de  Contas
-- [ ] CRUD de  Clientes
-- [ ] Adicionar Transações
-- [ ] Adicionar login para DBA
-- [ ] Adicionar login para funcionários
-- [ ] Adicionar login para clientes
+- [X] CRUD de  Contas
+- [X] CRUD de  Clientes
+- [X] Adicionar Transações
+- [X] Adicionar login para DBA
+- [X] Adicionar login para funcionários
+- [X] Adicionar login para clientes
+- [X] Privar rotas de agência
+- [X] Privar rotas de cliente
+- [ ] Privar rotas de conta
+- [ ] Privar rotas de dependente
+- [ ] Privar rotas de funcionários
+- [ ] Privar rotas de transação
 ##

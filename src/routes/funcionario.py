@@ -12,16 +12,18 @@ from routes.auth import pegar_dados_usuarios
 funcionarioRouter = APIRouter()
 login_dependency = Annotated[dict, Depends(pegar_dados_usuarios)]
 
+
 @funcionarioRouter.get("/")
 async def list_funcionario(usuario: login_dependency):
-    print(usuario) # VEM DO JWT
+    print(usuario)  # VEM DO JWT
     banco = bd.Bd()
-    slq = f'SELECT * FROM Funcionario'
+    slq = f'SELECT idFuncionario, matricula, nome_completo, endereco, cidade, cargo, sexo, data_nascimento_funcionario, salario, Agencia_idAgencia, num_dependentes FROM Funcionario'
     banco.cursor.execute(slq)
     return banco.cursor.fetchall()
 
+
 @funcionarioRouter.get("/{id}")
-async def ler_funcionario(id:str):
+async def ler_funcionario(id: str):
     banco = bd.Bd()
     slq = """SELECT * FROM `nullbank`.`Funcionario`
     WHERE
@@ -29,9 +31,11 @@ async def ler_funcionario(id:str):
     banco.cursor.execute(slq, {"id_funcionario": id})
     return banco.cursor.fetchall()
 
+
 @funcionarioRouter.post("/")
 async def createFuncionario(funcionario: FuncionarioModelPost):
-    funcionario.data_nascimento = datetime.strptime(funcionario.data_nascimento, "%Y-%m-%d %H:%M:%S")
+    funcionario.data_nascimento = datetime.strptime(
+        funcionario.data_nascimento, "%Y-%m-%d %H:%M:%S")
     banco = bd.Bd()
     bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
     slq = f"""INSERT INTO `nullbank`.`Funcionario` (
@@ -63,8 +67,8 @@ async def createFuncionario(funcionario: FuncionarioModelPost):
 );
 """
     banco.cursor.execute(
-        slq, {"matricula": funcionario.matricula, "nome": funcionario.nome, 
-              "senha": bcrypt_context.hash(funcionario.senha), 
+        slq, {"matricula": funcionario.matricula, "nome": funcionario.nome,
+              "senha": bcrypt_context.hash(funcionario.senha),
               "endereco": funcionario.endereco, "cidade": funcionario.cidade, "cargo": funcionario.cargo.value, "sexo": funcionario.sexo.value, "data_nascimento": funcionario.data_nascimento, "salario": funcionario.salario, "agencia": funcionario.Agencia, "num_dependentes": funcionario.num_dependentes})
     banco.conexao.commit()
     return banco.cursor.fetchall()
@@ -84,7 +88,8 @@ async def modificarFuncionario(funcionario: FuncionarioModelPut):
             WHERE
                 `idFuncionario` =  %(id_funcionario)s; 
             """
-    banco.cursor.execute(slq, {"id_funcionario": funcionario.id, "nome": funcionario.nome, "endereco": funcionario.endereco, "cidade": funcionario.cidade, "cargo": funcionario.cargo.value, "salario": funcionario.salario, "num_dependentes": funcionario.num_dependentes})
+    banco.cursor.execute(slq, {"id_funcionario": funcionario.id, "nome": funcionario.nome, "endereco": funcionario.endereco, "cidade": funcionario.cidade,
+                         "cargo": funcionario.cargo.value, "salario": funcionario.salario, "num_dependentes": funcionario.num_dependentes})
     banco.conexao.commit()
     return banco.cursor.fetchall()
 
