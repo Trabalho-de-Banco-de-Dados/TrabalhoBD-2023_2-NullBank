@@ -72,7 +72,7 @@ E rodar o código
 - [X] Privar rotas de agência
 - [X] Privar rotas de cliente
 - [ ] Privar rotas de conta
-- [ ] Privar rotas de dependente
-- [ ] Privar rotas de funcionários
+- [X] Privar rotas de dependente
+- [X] Privar rotas de funcionários
 - [X] Privar rotas de transação
 ##
