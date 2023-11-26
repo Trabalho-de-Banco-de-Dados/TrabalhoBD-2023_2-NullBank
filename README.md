@@ -74,5 +74,5 @@ E rodar o código
 - [ ] Privar rotas de conta
 - [ ] Privar rotas de dependente
 - [ ] Privar rotas de funcionários
-- [ ] Privar rotas de transação
+- [X] Privar rotas de transação
 ##

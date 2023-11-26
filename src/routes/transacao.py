@@ -12,7 +12,7 @@ login_dependency = Annotated[dict, Depends(pegar_dados_usuarios)]
 
 @transacaoRouter.get("/")
 async def list_transacao(usuario: login_dependency):
-    if usuario['tipo_usuario'] == 'CAIXA':
+    if usuario['tipo_usuario'] in ['CAIXA', 'DBA']:
         banco = bd.Bd()
         slq = f'SELECT * FROM Transacao'
         banco.cursor.execute(slq)
@@ -22,7 +22,7 @@ async def list_transacao(usuario: login_dependency):
 
 @transacaoRouter.get("/{id}")
 async def ler_transacao(id: str, usuario: login_dependency):
-    if usuario['tipo_usuario'] == 'CAIXA':
+    if usuario['tipo_usuario'] in ['CAIXA', 'DBA']:
         banco = bd.Bd()
         slq = """SELECT * FROM `nullbank`.`Transacao`
         WHERE
@@ -34,7 +34,7 @@ async def ler_transacao(id: str, usuario: login_dependency):
 
 @transacaoRouter.post("/")
 async def createTransacao(transacao: TransferenciaModelPost, usuario: login_dependency):
-    if usuario['tipo_usuario'] == 'CAIXA':
+    if usuario['tipo_usuario'] in ['CAIXA', 'DBA']:
         banco = bd.Bd()
         data_e_hora = datetime.now()
         if transacao.tipo_transacao.value == 'TRANSFERENCIA':
