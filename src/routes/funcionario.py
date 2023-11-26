@@ -16,7 +16,6 @@ login_dependency = Annotated[dict, Depends(pegar_dados_usuarios)]
 @funcionarioRouter.get("/")
 async def list_funcionario(usuario: login_dependency):
     if usuario['tipo_usuario'] == 'DBA':
-        print(usuario)  # VEM DO JWT
         banco = bd.Bd()
         slq = f'SELECT idFuncionario, matricula, nome_completo, endereco, cidade, cargo, sexo, data_nascimento_funcionario, salario, Agencia_idAgencia, num_dependentes FROM Funcionario'
         banco.cursor.execute(slq)
