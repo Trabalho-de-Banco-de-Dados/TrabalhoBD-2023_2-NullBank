@@ -1,16 +1,17 @@
 var token
 
-function imprimir(){
+function imprimir() {
   console.log(sessionStorage.getItem("token"))
 }
 function login(e) {
   const usuario = document.querySelector("#input-cpf input").value
   const senha = document.querySelector("#input-senha input").value
+  const tipoConta = document.querySelector("#tipo-conta").value
   console.log(senha)
   const url = "http://127.0.0.1:8000/auth/token"
   const dadosJson = {
     usuario_id: usuario,
-    tipo_usuario: "DBA",
+    tipo_usuario: tipoConta,
     senha: senha,
   }
 
