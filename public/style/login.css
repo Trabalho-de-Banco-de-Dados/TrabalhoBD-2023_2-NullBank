@@ -87,6 +87,7 @@ body {
   justify-content: center;
   border-radius: 8em;
 }
+
 #login-button > button {
   display: flex;
   align-items: center;

@@ -1,9 +1,11 @@
 const botaoLogin = document.querySelector("#login-button button")
-const usuario = document.querySelector("#input-cpf input").value
-const senha = document.querySelector("#input-senha input").value
+const botaoDBA = document.querySelector("#enviar")
 
-botaoLogin.addEventListener("click", function (e) {
-  console.log(senha)
+var token = 0
+
+botaoLogin.addEventListener("click", async function (e) {
+  const usuario = document.querySelector("#input-cpf input").value
+  const senha = document.querySelector("#input-senha input").value
   const url = "http://127.0.0.1:8000/auth/token"
   const dadosJson = {
     usuario_id: usuario,
@@ -11,28 +13,37 @@ botaoLogin.addEventListener("click", function (e) {
     senha: senha,
   }
 
-  fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      // Se necessário, adicione outros cabeçalhos aqui
-    },
-    body: JSON.stringify(dadosJson),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(
-          `Erro na requisição: ${response.status} - ${response.statusText}`
-        )
-      }
-      return response.json()
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dadosJson),
     })
-    .then((data) => {
-      // Faça algo com os dados da resposta (data)
-      console.log("Resposta:", data)
-    })
-    .catch((error) => {
-      // Trate os erros durante a requisição
-      console.error("Erro:", error)
-    })
+
+    if (!response.ok) {
+      throw new Error(
+        `Erro na requisição: ${response.status} - ${response.statusText}`
+      )
+    }
+
+    const data = await response.json()
+    console.log("Resposta:", data)
+
+    guardarToken(data)
+    abrirDBA()
+
+    // Se necessário, faça algo com a resposta
+  } catch (error) {
+    console.error("Erro:", error)
+  }
 })
+
+function guardarToken(data) {
+  token = data["access_token"]
+}
+
+function abrirDBA() {
+  window.location.href = "./DBA_page.html"
+}
