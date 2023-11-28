@@ -6,7 +6,7 @@ function dba(e) {
         sql: "SELECT * FROM Agencia",
     };
     
-    const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjoiMTI0NTk2MiIsInRpcG9fdXN1YXJpbyI6IkdFUkVOVEUiLCJleHAiOjE3MDM2MDM2ODR9.YNLpnTt2IHp4Z6n-QOtEPKMRWXm8vQQ7V_s6WrzPQSQ";
+    const token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvX2lkIjoiQURNSU4iLCJ0aXBvX3VzdWFyaW8iOiJEQkEiLCJleHAiOjE3MDM3OTA3Mzh9.o8K92_F8JEZ5jr_svwv0eEB7-FdqCw8lyjDSdcWBvXk";
     
     fetch(url, {
       method: "POST",
