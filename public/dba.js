@@ -1,7 +1,5 @@
 function dba(e) {
-  const valueTextrea = document.querySelector(".textarea").value
-  var sql = '"' + valueTextrea + '"'
-  sql = sql.slice(1, -1)
+  const sql = document.querySelector(".textarea").value
   console.log(sql)
   const url = "http://127.0.0.1:8000/dba/"
   const dadosJson = {
@@ -31,10 +29,25 @@ function dba(e) {
     .then((data) => {
       // Do something with the response data
       console.log("Resposta:", data)
-      //document.querySelector(".codebox code").innerHTML = data.stringify()
+      const string = JSON.stringify(data)
+      document.querySelector(".codebox code").innerHTML = string
+      formatarQuebraDeLinha()
     })
     .catch((error) => {
       // Handle errors during the request
       console.error("Erro:", error)
     })
+}
+
+// Função para formatar quebras de linha após vírgulas
+function formatarQuebraDeLinha() {
+  var codeElement = document.getElementById("formattedCode")
+  var codeContent = codeElement.textContent || codeElement.innerText
+
+  // Substituir vírgulas por vírgula seguida de quebra de linha
+  var formattedContent = codeContent.replace(/,/g, ",\n")
+
+  // Atualizar o conteúdo do elemento
+  codeElement.textContent = formattedContent
+  codeElement.innerText = formattedContent
 }
