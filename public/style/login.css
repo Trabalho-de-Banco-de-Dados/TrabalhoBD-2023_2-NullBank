@@ -88,6 +88,10 @@ body {
   border-radius: 8em;
 }
 
+#login-button:hover {
+  background-color: rgb(90, 29, 140);
+}
+
 #login-button > button {
   display: flex;
   align-items: center;
