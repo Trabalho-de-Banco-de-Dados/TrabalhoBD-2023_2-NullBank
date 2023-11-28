@@ -63,7 +63,7 @@ async def modificarAgencia(agencia: AgenciaModelPut, usuario: login_dependency):
 
 @agenciaRouter.delete("/")
 async def deletarAgencia(agencia: AgenciaModelDelete, usuario: login_dependency):
-    if usuario['tipo_usuario'] in ['CAIXA', 'DBA']:
+    if usuario['tipo_usuario'] in ['DBA']:
         banco = bd.Bd()
         slq = f"""DELETE FROM `nullbank`.`Agencia`
         WHERE
