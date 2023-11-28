@@ -186,17 +186,12 @@ async def createCliente(cliente: ClienteModelPost, usuario: login_dependency):
         `data_nascimento_cliente`, 
         `Endereco_idEndereco`)
         VALUES (
-        %(cpf)s, 
-        %(nome)s, 
-        %(rg)s, 
-        %(orgao_emissor)s, 
-        %(uf_rg)s, 
-        %(data_de_nascimento)s, 
-        %(id_endereco)s
-        );
+        %(cpf)s, %(nome)s, %(rg)s, %(orgao_emissor)s, %(uf_rg)s, %(data_de_nascimento)s, %(id_endereco)s);
         """
         banco.cursor.execute(
-            slq, {"cpf": cliente.cpf, "nome": cliente.nome, "rg": cliente.rg, "orgao_emissor": cliente.orgao_emissor, "uf_rg": cliente.uf_rg, "data_de_nascimento": cliente.data_nascimento, "id_endereco": cliente.id_endereco})
+            slq, {"cpf": cliente.cpf, "nome": cliente.nome, "rg": cliente.rg,
+                  "orgao_emissor": cliente.orgao_emissor, "uf_rg": cliente.uf_rg,
+                  "data_de_nascimento": cliente.data_nascimento, "id_endereco": cliente.id_endereco})
         banco.conexao.commit()
         return banco.cursor.fetchall()
     raise HTTPException(status_code=500, detail="Usuário ou senha incorretos")
