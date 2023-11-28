@@ -58,7 +58,7 @@ body {
   margin-left: 5px;
 }
 
-.input-box{
+.input-box {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +70,7 @@ body {
   padding: 10px;
 }
 
-.textarea{
+.textarea {
   margin-left: 15px;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -83,10 +83,9 @@ body {
   padding: 8px;
   white-space: pre-wrap;
   resize: both;
-  overflow:scroll;
+  overflow: scroll;
   line-height: 10pt;
 }
-
 
 .textarea::-webkit-scrollbar {
   width: 8px;
@@ -105,7 +104,7 @@ body {
   background: transparent;
 }
 
-#enviar{
+#enviar {
   display: flex;
   background-color: rgb(34, 34, 34);
   border-radius: 20px;
@@ -116,12 +115,14 @@ body {
   color: #ffffff;
 }
 
-#enviar:hover{
-  border: 1px solid #ffffff ;
+#enviar:hover {
+  border: 1px solid #ffffff;
 }
 
 .codebox {
   display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
   justify-content: center;
   background-color: black;
   color: rgb(40, 214, 5);
@@ -129,6 +130,13 @@ body {
   padding: 10px;
   padding-right: 50px;
   border-radius: 1em;
+}
+
+.codebox > code {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 768px) {
