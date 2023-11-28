@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/DBA_page.css" />
+    <link
+      href="https://fonts.cdnfonts.com/css/graphik-trial"
+      rel="stylesheet"
+    />
+    <title>Nullbank</title>
+  </head>
+  <body>
+    <div id="header">
+      <div class="dados-conta">
+        <svg
+          id="menu-conta"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 32 32"
+        >
+          <defs>
+            <style>
+              .cls-1 {
+                fill: none;
+              }
+            </style>
+          </defs>
+          <title />
+          <g data-name="Layer 2" id="Layer_2">
+            <path
+              d="M16,29A13,13,0,1,1,29,16,13,13,0,0,1,16,29ZM16,5A11,11,0,1,0,27,16,11,11,0,0,0,16,5Z"
+            />
+            <path
+              d="M16,17a5,5,0,1,1,5-5A5,5,0,0,1,16,17Zm0-8a3,3,0,1,0,3,3A3,3,0,0,0,16,9Z"
+            />
+            <path
+              d="M25.55,24a1,1,0,0,1-.74-.32A11.35,11.35,0,0,0,16.46,20h-.92a11.27,11.27,0,0,0-7.85,3.16,1,1,0,0,1-1.38-1.44A13.24,13.24,0,0,1,15.54,18h.92a13.39,13.39,0,0,1,9.82,4.32A1,1,0,0,1,25.55,24Z"
+            />
+          </g>
+          <g id="frame">
+            <rect class="cls-1" height="32" width="32" />
+          </g>
+        </svg>
+
+        <p>DBA</p>
+      </div>
+      <div class="logo">
+        <svg
+          id="nu"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          viewBox="0 0 24 24"
+        >
+          <title>Nubank</title>
+          <path
+            d="M7.2795 5.4336c-1.1815 0-2.1846.4628-2.9432 1.252h-.002c-.0541-.0022-.1074-.002-.162-.002-1.5436 0-2.9925.8835-3.699 2.2559-.3088.5996-.4234 1.2442-.459 1.9003-.0321.589 0 1.1863 0 1.7696v5.6523H3.184s.0022-2.784 0-5.1777c-.0014-1.6112-.0118-3.0471 0-3.3418.056-1.3937.4372-2.3053 1.1484-3.0508 2.3585.0018 3.8852 1.6091 3.9705 4.168.0196.5874.0254 3.7304.0254 3.7304v3.672h3.1678v-4.965c0-1.5007.0127-2.8006-.0918-3.6952-.292-2.5-1.821-4.168-4.1248-4.168zm8.3903.3008l-3.166.0039v4.9648c0 1.5009-.0127 2.8007.0919 3.6953.2921 2.5001 1.821 4.168 4.1248 4.168 1.1815 0 2.1846-.4628 2.9432-1.252.0003-.0003.0016.0004.002 0 .0542.0023.1093.002.164.002 1.5435 0 2.9905-.8835 3.6971-2.2558.3088-.5997.4233-1.2442.459-1.9004.032-.5889 0-1.1862 0-1.7695V5.7383H20.816s-.0022 2.784 0 5.1777c.0015 1.6113.0119 3.047 0 3.3418-.056 1.3935-.4372 2.3053-1.1483 3.0508-2.3586-.0018-3.8853-1.6091-3.9706-4.168-.0196-.5874-.0273-2.0437-.0273-3.7324Z"
+          />
+        </svg>
+        <img id="llbank" src="./img/llbank.png" alt="" />
+      </div>
+    </div>
+    <div class="input-box">
+      <textarea
+        class="textarea"
+        onkeydown="if (event.keyCode == 13) {this.value += '\n'}"
+      ></textarea>
+      <button id="enviar">ENVIAR</button>
+    </div>
+    <p style="color: #fff; font-size: 20pt">Response:</p>
+    <div>
+      <pre class="codebox">
+        <code>
+          HTTP/1.1 200 OK
+          Content-Type: application/json
+
+          {
+            "name": "João"
+          }
+        </code>
+      </pre>
+    </div>
+  </body>
+  <script src="./login.js"></script>
+</html>

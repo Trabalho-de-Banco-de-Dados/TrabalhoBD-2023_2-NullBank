@@ -1,0 +1,271 @@
+* {
+  color: #ffffff;
+  font-family: "Graphik Trial", sans-serif;
+}
+
+html {
+  height: 100%;
+  background-color: black;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  margin: 0%;
+  border: none;
+  outline: 0;
+}
+
+.left-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  border-right: 2px solid rgb(34, 34, 34);
+}
+
+.rigth-menu {
+  width: 75%;
+}
+
+#header-menu {
+  display: flex;
+  align-items: center;
+  background-color: rgb(90, 29, 140);
+  width: 100%;
+  height: 15%;
+}
+
+#conta {
+  margin-left: 35px;
+  fill: #ffffff;
+  width: 50px;
+}
+
+#ocultar,
+#exibir {
+  margin-left: 35px;
+  fill: #ffffff;
+  width: 25px;
+}
+
+#saldo {
+  font-size: 15pt;
+  margin-left: 20px;
+}
+
+.rigth-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+#logout-button {
+  background-color: rgb(34, 34, 34);
+  display: flex;
+  width: 10%;
+  height: 4em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8em;
+  margin: 15px;
+  box-shadow: -2px 1px 10px 1px rgba(79, 79, 79, 1);
+}
+#logout-button > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+#logout-button:hover {
+  background-color: rgb(90, 29, 140);
+}
+
+.funcoes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+
+.opcao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 20px;
+  margin-top: 30px;
+  background-color: rgb(34, 34, 34);
+  width: 70%;
+  height: 120px;
+  border-radius: 15px;
+}
+
+.opcao:hover {
+  background-color: rgb(90, 29, 140);
+}
+
+.opcao > svg {
+  fill: #ffffff;
+  width: 70px;
+}
+
+.opcao > p {
+  color: #ffffff;
+  font-size: 15pt;
+  font-weight: 1000;
+}
+
+.formulario {
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "c c"
+    "d d";
+  background-color: rgb(90, 29, 140);
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  width: 65%;
+  padding-bottom: 15px;
+  border-radius: 0 0 1em 1em;
+}
+
+#valor {
+  grid-area: c;
+  width: 30%;
+}
+
+.formulario > div {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+}
+
+.formulario > div > input {
+  background-color: rgb(34, 34, 34);
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 14pt;
+}
+
+#save-button {
+  display: flex;
+  grid-area: d;
+  background-color: rgb(34, 34, 34);
+  width: 20%;
+  height: 2em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8em;
+  border: none;
+}
+
+#save-button > button {
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  border: none;
+  font-size: 16pt;
+  font-weight: 500;
+}
+
+#extrato {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(34, 34, 34);
+  width: 90%;
+  margin: 10px;
+  border-radius: 15px;
+  overflow: scroll;
+  box-shadow: -2px 1px 10px 1px rgba(79, 79, 79, 1);
+}
+
+#extrato::-webkit-scrollbar {
+  width: 8px;
+}
+
+#extrato::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#extrato::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-radius: 20px;
+}
+
+#extrato::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.transacao {
+  display: flex;s
+  flex-direction: column;
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid rgb(255, 255, 255, 0.2);
+}
+
+.transacao > div > p {
+  text-align: center;
+  margin: 0px;
+}
+
+.transacao > p {
+  margin-bottom: 3px;
+  margin-top: 3px;
+  font-weight: 1000;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+  #header-menu {
+    justify-content: center;
+  }
+  .left-menu {
+    width: 100%;
+  }
+  .left-menu > p {
+    font-size: 18pt;
+    font-weight: 300;
+  }
+
+  .opcao {
+    width: 90%;
+  }
+
+  #save-button {
+    width: 40%;
+  }
+
+  #logout-button {
+    width: 40%;
+  }
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .formulario > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #valor {
+    width: 70%;
+  }
+}

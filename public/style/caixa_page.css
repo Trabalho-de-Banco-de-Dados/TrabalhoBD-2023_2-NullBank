@@ -1,0 +1,139 @@
+* {
+  color: #ffffff;
+  font-family: "Graphik Trial", sans-serif;
+}
+
+html {
+  height: 100%;
+  background-color: black;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin: 0%;
+  border: none;
+  outline: 0;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  background-color: rgb(90, 29, 140);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+#nu {
+  fill: #ffffff;
+  width: 50px;
+}
+
+#llbank {
+  margin-left: 2px;
+  margin-right: 35px;
+  width: 80px;
+}
+
+#menu-conta {
+  margin-left: 35px;
+  fill: #ffffff;
+  width: 50px;
+}
+
+.dados-conta {
+  display: flex;
+}
+
+.dados-conta > p {
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.main-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.main-box > p {
+  font-size: 15pt;
+}
+
+.card-conta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(34, 34, 34);
+  width: 55%;
+  height: max-content;
+  border-radius: 1rem;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.botao-de-acesso {
+  display: flex;
+  background-color: rgb(90, 29, 140);
+  border-radius: 20px;
+  margin-left: 20px;
+  height: 80%;
+  align-items: center;
+}
+.botao-de-acesso > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+}
+
+.dados-basicos {
+  display: flex;
+  align-items: center;
+  margin-right: 5%;
+}
+.dados-basicos > div {
+  margin-left: 40px;
+  border-left: 2px solid rgb(255, 255, 255, 0.2);
+  padding-left: 15px;
+}
+.dados-basicos > div > p {
+  margin: 4px;
+}
+
+.conta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .card-conta {
+    flex-direction: column;
+  }
+  .dados-basicos > div {
+    border-left: none;
+    margin: 0;
+    padding: 0;
+  }
+  .dados-basicos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 0;
+  }
+}
