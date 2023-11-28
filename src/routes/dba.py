@@ -10,6 +10,7 @@ login_dependency = Annotated[dict, Depends(pegar_dados_usuarios)]
 
 @dbaRouter.post("/")
 async def executar_sql(dba: DbaModel, usuario: login_dependency):
+    print("TESTE")
     if usuario['tipo_usuario'] == 'DBA':
         banco = bd.Bd()
         slq = dba.sql

@@ -1,6 +1,7 @@
 function dba(e) {
   const valueTextrea = document.querySelector(".textarea").value
-  const sql = '"' + valueTextrea + '"'
+  var sql = '"' + valueTextrea + '"'
+  sql = sql.slice(1, -1)
   console.log(sql)
   const url = "http://127.0.0.1:8000/dba/"
   const dadosJson = {
