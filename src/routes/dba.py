@@ -8,7 +8,7 @@ dbaRouter = APIRouter()
 login_dependency = Annotated[dict, Depends(pegar_dados_usuarios)]
 
 
-@dbaRouter.get("/")
+@dbaRouter.post("/")
 async def executar_sql(dba: DbaModel, usuario: login_dependency):
     if usuario['tipo_usuario'] == 'DBA':
         banco = bd.Bd()
