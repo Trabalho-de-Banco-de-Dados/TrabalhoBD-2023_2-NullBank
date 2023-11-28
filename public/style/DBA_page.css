@@ -1,0 +1,135 @@
+* {
+  font-family: "Graphik Trial", sans-serif;
+}
+
+html {
+  height: 100%;
+  background-color: black;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  margin: 0%;
+  border: none;
+  outline: 0;
+}
+
+#header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 70px;
+  background-color: rgb(90, 29, 140);
+  color: #ffffff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+#nu {
+  fill: #ffffff;
+  width: 50px;
+}
+
+#llbank {
+  margin-left: 2px;
+  margin-right: 35px;
+  width: 80px;
+}
+
+#menu-conta {
+  margin-left: 35px;
+  fill: #ffffff;
+  width: 50px;
+}
+
+.dados-conta {
+  display: flex;
+}
+
+.dados-conta > p {
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.input-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  width: 60%;
+  height: min-content;
+  border-radius: 1em;
+  background-color: rgb(90, 29, 140);
+  padding: 10px;
+}
+
+.textarea{
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 60%;
+  height: 100px;
+  border: none;
+  font-size: 16pt;
+  background-color: rgb(34, 34, 34);
+  color: rgb(40, 214, 5);
+  padding: 8px;
+  white-space: pre-wrap;
+  resize: both;
+  overflow:scroll;
+  line-height: 10pt;
+}
+
+
+.textarea::-webkit-scrollbar {
+  width: 8px;
+}
+
+.textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.textarea::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-radius: 20px;
+}
+
+.textarea::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+#enviar{
+  display: flex;
+  background-color: rgb(34, 34, 34);
+  border-radius: 20px;
+  border: none;
+  margin-left: 20px;
+  height: 50%;
+  align-items: center;
+  color: #ffffff;
+}
+
+#enviar:hover{
+  border: 1px solid #ffffff ;
+}
+
+.codebox {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: rgb(40, 214, 5);
+  border: 2px solid white;
+  padding: 10px;
+  padding-right: 50px;
+  border-radius: 1em;
+}
+
+@media only screen and (max-width: 768px) {
+}

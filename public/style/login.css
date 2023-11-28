@@ -1,0 +1,119 @@
+* {
+  color: #ffffff;
+  font-family: "Graphik Trial", sans-serif;
+}
+
+html {
+  height: 100%;
+  background-color: black;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  margin: 0%;
+  border: none;
+  outline: 0;
+}
+
+.imagem,
+.login {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.imagem {
+  background-image: url("../img/fundo_login.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#titulo-login {
+  font-weight: 500;
+  font-size: 22pt;
+}
+
+#login-box {
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+#input-cpf,
+#input-senha {
+  display: flex;
+  font-weight: 20;
+  width: 100%;
+  border-bottom: 2px solid rgb(34, 34, 34);
+}
+
+#input-senha > svg {
+  height: 30px;
+  fill: rgba(255, 255, 255, 0.64);
+}
+#input-senha > input,
+#input-cpf > input {
+  width: 100%;
+  height: 30px;
+}
+
+.cpf,
+.senha {
+  margin-top: 1.9em;
+  margin-bottom: 2.5em;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: -0.01px;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+#login-button {
+  background-color: rgb(34, 34, 34);
+  display: flex;
+  width: 100%;
+  height: 4em;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8em;
+}
+#login-button > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(34, 34, 34);
+  margin-top: 2em;
+  width: 100%;
+  height: 25%;
+}
+
+.footer > a {
+  color: rgb(173, 132, 247);
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .imagem {
+    display: none;
+  }
+}
